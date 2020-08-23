@@ -1,4 +1,3 @@
-
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
@@ -9,17 +8,17 @@ def logbtn(request):
         emailid=request.POST['t1']
         password=request.POST['t2']
         if User.objects.filter(emailid=emailid).exists():
-            return render(request, 'home.html')
+            return render(request, 'account/home.html')
         else:
             msg="User Not Found"
             return render(request,'msg.html',{"msg":msg})
 
 def login(request):
-    return render(request,'login.html')
+    return render(request,'account/login.html')
 
 
 def register(request):
-    return render(request,'register.html')
+    return render(request,'account/register.html')
 def create(request):
     if request.method == "POST":
         username=request.POST['s1']
@@ -34,13 +33,13 @@ def create(request):
         else:
             user = User.objects.create_user(username=username,emailid=emailid, password=password)
             user.save();
-            return render(request,'home.html')
+            return render(request,'account/home.html')
 
 def home(request):
-    return render(request,'home.html')
+    return render(request,'account/home.html')
 
 def contact(request):
-    return render(request,'contact.html')
+    return render(request,'account/contact.html')
 
 def about(request):
-    return render(request,'about.html')
+    return render(request,'account/about.html')
