@@ -1,1 +1,1 @@
-# attendance portal that generates student attendance directly from meet and stores in database.
+# attendance portal that generates student attendance directly from google meet and stores it in database.
