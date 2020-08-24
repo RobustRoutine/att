@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from account import views
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('account.urls')),
     path('/account/',include('account.urls')),
     path('/login/',include('account.urls')),
     path('/register/', include('account.urls')),
     path('/contact/',include('account.urls')),
     path('/about/', include('account.urls')),
-    path('/home/', include('account.urls')),
     path('/logbtn/', include('account.urls')),
 ]
