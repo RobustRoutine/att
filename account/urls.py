@@ -9,6 +9,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('contact', views.contact, name='contact'),
     path('about', views.about, name='about'),
-    path('/logbtn',views.logbtn,name='logbtn'),
-    path('create', views.create, name='create'),
+    #path('/logbtn',views.logbtn,name='logbtn'),
+   # path('create', views.create, name='create'),
 ]

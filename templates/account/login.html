@@ -99,7 +99,7 @@
   </style>
   </head>
   <body>
-  <!-- Code for sign in page -->
+  <!-- Code for sign in page
   <div class="container" >
       <form action='account/logbtn/' method="POST" class="login-form">
           {%csrf_token%}
@@ -115,16 +115,20 @@
 
           </div>
           <input type="submit" class="logbtn"  value="LogIn">
-          <!-- link for creating a new account -->
+       link for creating a new account -->
+  <form action="login" method="post" class="login-form">
+      {% csrf_token %}
+         <input type="email" class="txtb" name="t1" placeholder="Email-Id"  ><br>
+         <input type="password" class="txtb"  name="t2" placeholder="Password"  ><br>
+          <input type="submit" class="logbtn"  value="LogIn">
           <div class="bottom-text">
               Create An Account<a href="/register/">Signup</a>
           </div>
           <div class="bottom-text">
-              forgot password<a href="#">Reset</a>
+              forgot password<a href="/account/password_reset">Reset</a>
           </div>
 
-      </form>
-  </div>
+  </form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

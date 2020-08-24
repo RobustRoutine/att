@@ -8,9 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Registration Page</title>
-
-      <!--css of the site -->
+    <title>System Login</title>
+   <!-- css of the site -->
   <style>
       .body{
       min-height:100vh;
@@ -42,7 +41,6 @@
       outline:none;
       cursor:pointer;
       transition: .5s;
-      font-size:30px;
       }
       .logbtn:hover{
       background-position:right;
@@ -50,7 +48,7 @@
       .bottom-text{
       margin-top:60px;
       text-align:center;
-      font-size:10px;
+      font-size:13px;
       }
       .txtb{
       border-bottom:2px solid #adadad;
@@ -101,36 +99,36 @@
   </style>
   </head>
   <body>
-  <!-- code for singup page
+  <!-- Code for sign in page
   <div class="container" >
-      <form action="create" method="POST" class="login-form">
-          {% csrf_token %}
-          <h1>Sign Up<h1>
+      <form action='account/logbtn/' method="POST" class="login-form">
+          {%csrf_token%}
+          <h1>System LogIn</h1>
           <div class="txtb">
-              <input type="text">
-              <span  data-placeholder="Username"></span>
-
-          </div>
-           <div class="txtb">
-              <input type="text">
-              <span  data-placeholder="Email-ID"></span>
+              <input type="text" name="t1">
+              <span data-placeholder="Email-ID"></span>
 
           </div>
           <div class="txtb">
-              <input type="password">
+              <input type="password" name="t2">
               <span data-placeholder="Password"></span>
 
           </div>
-          submit button -->
-     <form action="register" method="post" class="login-form">
-         {% csrf_token %}
-         <input type="text"  name="s1" class="txtb" placeholder="Username"><br>
-         <input type="email"  name="s2" class="txtb" placeholder="Email-Id"><br>
-         <input type="password"  name="s3" class="txtb" placeholder="Password"><br>
-         <input type="submit"  class="logbtn" value="Create An Account">
+          <input type="submit" class="logbtn"  value="LogIn">
+       link for creating a new account -->
+  <form action="login" method="post" class="login-form">
+      {% csrf_token %}
+         <input type="email" class="txtb" name="t1" placeholder="Email-Id"  ><br>
+         <input type="password" class="txtb"  name="t2" placeholder="Password"  ><br>
+          <input type="submit" class="logbtn"  value="LogIn">
+          <div class="bottom-text">
+              Create An Account<a href="/register/">Signup</a>
+          </div>
+          <div class="bottom-text">
+              forgot password<a href="/account/password_reset">Reset</a>
+          </div>
 
-      </form>
-  </div>
+  </form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -147,4 +145,5 @@
         });
     </script>
   </body>
+
 </html>
