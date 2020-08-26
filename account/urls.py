@@ -1,7 +1,8 @@
 from django.contrib import admin
-from django.urls import path
-from account import views
-
+from django.urls import path,include
+from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('login',views.login,name='login'),
@@ -9,6 +10,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('contact', views.contact, name='contact'),
     path('about', views.about, name='about'),
-    #path('/logbtn',views.logbtn,name='logbtn'),
-   # path('create', views.create, name='create'),
+    path('tutorial',views.tutorial,name='tutorial'),
+
+
 ]
+if settings.DEBUG:
+   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
