@@ -18,6 +18,7 @@ from django.urls import path,include
 from account import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,5 @@ urlpatterns = [
     path('/about/', include('account.urls')),
     path('/tutorial/', include('account.urls')),
     path('account/',include('django.contrib.auth.urls')),
+    path('accounts/login/',auth_view.LoginView.as_view(template_name='account/login.html'))
 ]

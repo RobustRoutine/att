@@ -29,7 +29,9 @@ ALLOWED_HOSTS = []
 
 if DEBUG:
     EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend' #during devlopment only
-
+EMAIL_HOST='localhost'
+EMAIL_PORT=25
+#EMAIL_USE_TLS=True
 
 # Application definition
 
@@ -94,7 +96,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator','OPTIONS':{
+        'min_length':8,
+    }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -104,6 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS=[
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -126,3 +136,11 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+#EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST='smtp.gmail.com'
+#EMAIL_PORT=587
+#EMAIL_USE_TLS=True
+#EMAIL_HOST_USER='attendance@gmail.com'
+#EMAIL_HOST_PASSWORD='shivangi0804'
+#SESSION_EXPIRE_AT_BROWSER_CLOSE=True
